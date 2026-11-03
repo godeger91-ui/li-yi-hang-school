@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Weekly study routine chart and daily planner">
+<meta name="author" content="God Eger">
+<link rel="stylesheet" href="styles.css">
+<title>Li Yi Hang Learning — Routine</title>
+</head>
+<body>
+<header>
+  <h1 class="brand">⚡ <span>Li Yi Hang Learning</span></h1>
+  <p class="tagline">Study Routine &amp; Planner · Built by <b>God Eger</b> &amp; <b>Li Yi Hang</b></p>
+</header>
+
+<nav>
+  <a href="index.html">🏠 Home</a>
+  <a href="course.html">📚 HTML5 Course</a>
+  <a href="quiz.html">📝 Quiz</a>
+  <a href="routine.html" class="active">📅 Routine</a>
+  <a href="tips.html">💡 Study Tips</a>
+  <a href="about.html">👥 About</a>
+</nav>
+
+<main>
+  <div class="card">
+    <h3>📊 My Weekly Study Routine (Hours per Day)</h3>
+    <canvas id="chart" width="800" height="400"></canvas>
+    <div style="text-align:center">
+      <button class="b1" onclick="updateDay(-1)">➖ Less</button>
+      <button class="b2" onclick="updateDay(1)">➕ More</button>
+      <button class="b3" onclick="resetWeek()">🔄 Reset Week</button>
+    </div>
+    <p style="text-align:center;color:#aaa;font-size:.9rem">Click a bar to select it, then add or remove study hours. Data saves automatically in your browser.</p>
+  </div>
+
+  <div class="card" style="margin-top:20px">
+    <h3>✅ Daily Planner</h3>
+    <input id="taskInput" placeholder="Add today's task and press Enter..." onkeydown="if(event.key==='Enter')addTask()"
+      style="width:75%;padding:12px;border-radius:10px;border:none;font-size:1rem">
+    <div id="tasks"></div>
+  </div>
+
+  <div class="card" style="margin-top:20px">
+    <h3>🧮 Weekly Total</h3>
+    <p id="total" style="font-size:1.5rem;color:var(--c2);font-weight:bold"></p>
+  </div>
+</main>
+
+<footer>Made with ❤️ by <b>God Eger</b> &amp; <b>Li Yi Hang</b> · Li Yi Hang Learning © 2026</footer>
+
+<script>
+const DAYS=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+let hours=JSON.parse(localStorage.getItem('es_hours')||'[3,4,2,5,3,6,4]');
+let sel=-1;
+const ctx=document.getElementById('chart').getContext('2d');
+const COLORS=['#6c5ce7','#00cec9','#fd79a8','#fdcb6e','#55efc4','#74b9ff','#e17055'];
+function drawChart(){
+  const W=ctx.canvas.width,H=ctx.canvas.height,max=8;
+  ctx.clearRect(0,0,W,H);
+  ctx.strokeStyle='#2d2d44';ctx.fillStyle='#aaa';ctx.font='12px Segoe UI';
+  for(let g=0;g<=max;g+=2){
+    const y=H-40-(H-70)*g/max;
+    ctx.beginPath();ctx.moveTo(40,y);ctx.lineTo(W-10,y);ctx.stroke();
+    ctx.fillText(g+'h',5,y+4);
+  }
+  const bw=(W-60)/DAYS.length;
+  DAYS.forEach((d,i)=>{
+    const h=hours[i],bh=(H-70)*h/max,x=40+i*bw+bw*0.2,y=H-40-bh;
+    ctx.fillStyle=i===sel?'#ffffff33':COLORS[i];
+    ctx.fillRect(x,y,bw*0.6,bh);
+    ctx.fillStyle=COLORS[i];ctx.fillRect(x,y,bw*0.6,4);
+    ctx.fillStyle='#f5f6fa';ctx.font='bold 13px Segoe UI';
+    ctx.fillText(h+'h',x+bw*0.25,y-6);
+    ctx.fillText(d,x+bw*0.25,H-18);
+  });
+  ctx.fillStyle='#6c5ce7';ctx.fillRect(0,H-1,W,4);
+  document.getElementById('total').textContent=
+    hours.reduce((a,b)=>a+b,0)+' hours planned this week 💪';
+}
+function updateDay(n){
+  if(sel<0)return alert('👉 First click a bar in the chart to select it!');
+  hours[sel]=Math.max(0,Math.min(8,hours[sel]+n));
+  localStorage.setItem('es_hours',JSON.stringify(hours));
+  drawChart();
+}
+function resetWeek(){
+  hours=[0,0,0,0,0,0,0];
+  localStorage.setItem('es_hours',JSON.stringify(hours));
+  drawChart();
+}
+document.getElementById('chart').addEventListener('click',e=>{
+  const r=e.target.getBoundingClientRect(),x=(e.clientX-r.left)*(800/r.width)-40;
+  sel=Math.floor(x/((800-60)/7));
+  if(sel<0||sel>6)sel=-1;
+  drawChart();
+});
+function addTask(){
+  const v=document.getElementById('taskInput').value.trim();
+  if(!v)return;
+  const d=document.createElement('div');d.className='card';d.style.margin='8px 0';
+  d.innerHTML='<span onclick="this.classList.toggle(\'done\')" style="cursor:pointer">'+v+'</span><button class="b2" onclick="this.parentNode.remove()">✕</button>';
+  d.querySelector('button').style.cssText='float:right;padding:2px 12px';
+  document.getElementById('tasks').appendChild(d);
+  document.getElementById('taskInput').value='';
+}
+drawChart();
+</script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Panel | Li Yi Hang Learning</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div class="container header-inner">
+      <div class="brand">
+        <div class="brand-mark">LY</div>
+        <div>
+          <strong>Li Yi Hang</strong>
+          <small>Learning Academy</small>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button class="toggle-btn" id="themeToggle" aria-label="Toggle theme">🌙</button>
+        <a href="dashboard.html" class="secondary-btn">Student view</a>
+        <a href="index.html" class="secondary-btn">Home</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" id="adminPanel">
+    <section class="page-banner">
+      <div class="breadcrumbs">Home / Teacher workspace</div>
+      <h1>Teacher and admin workspace</h1>
+      <p>Review learner progress, recent lesson checks, Chinese practice, and requests for help from this browser.</p>
+    </section>
+
+    <aside class="local-data-note"><strong>Local demo access</strong><span>This page is not password-protected. It reads browser storage on this device only; it is not suitable for real student records or private data.</span></aside>
+
+    <div class="admin-role-tabs" role="tablist" aria-label="Admin workspace mode">
+      <button type="button" class="role-tab active" data-admin-role="teacher" role="tab" aria-selected="true">Teacher workspace</button>
+      <button type="button" class="role-tab" data-admin-role="developer" role="tab" aria-selected="false">Developer workspace</button>
+    </div>
+
+    <div class="grid-4">
+      <div class="admin-card">
+        <h3>Learner profiles</h3>
+        <p><strong id="adminStudentCount">0</strong> on this browser</p>
+      </div>
+      <div class="admin-card">
+        <h3>Chapters passed</h3>
+        <p><strong id="adminLessonCount">0</strong> completed</p>
+      </div>
+      <div class="admin-card">
+        <h3>Activity records</h3>
+        <p><strong id="adminAssessmentCount">0</strong> recorded</p>
+      </div>
+      <div class="admin-card">
+        <h3>Open help requests</h3>
+        <p><strong id="adminHelpCount">0</strong> waiting for reply</p>
+      </div>
+    </div>
+
+    <section class="section card">
+      <h2>Learner overview</h2>
+      <div id="learnerReport"><p class="subtle">No learner profile recorded on this device.</p></div>
+    </section>
+
+    <section class="section card">
+      <h2>Recent learning activity</h2>
+      <div class="table-wrap"><table class="admin-activity-table"><thead><tr><th>Course</th><th>Chapter / check</th><th>Result</th><th>When</th></tr></thead><tbody id="activityReport"><tr><td colspan="4">No study activity recorded in this browser yet.</td></tr></tbody></table></div>
+    </section>
+
+    <section class="section admin-role-panel" data-role-panel="teacher">
+      <div class="section-head"><div><h2>Teacher help inbox</h2><p class="subtle">Replies appear on the learner dashboard in this same browser.</p></div></div>
+      <div id="teacherInbox" class="teacher-inbox"><p class="subtle">No student requests yet.</p></div>
+    </section>
+
+    <section class="section admin-role-panel" data-role-panel="developer" hidden>
+      <div class="section-head"><div><h2>Developer tools</h2><p class="subtle">Inspect this static prototype and prepare data before real hosting and server authentication are connected.</p></div></div>
+      <div class="grid-2">
+        <article class="card"><h3>Content inventory</h3><ul class="list-check"><li>HSK dialogue conversations: <strong>150</strong></li><li>AI roadmap chapters: <strong>20</strong></li><li>Web roadmap chapters: <strong>24</strong></li><li>IT roadmap chapters: <strong>12</strong></li></ul></article>
+        <article class="card"><h3>Prototype data</h3><p>Export saved learner progress for backup, or reset this browser’s demo records.</p><div class="button-row"><button class="primary-btn" id="exportData" type="button">Export JSON</button><button class="secondary-btn" id="resetDemo" type="button">Reset demo data</button></div><p id="developerFeedback" class="subtle" aria-live="polite"></p></article>
+      </div>
+      <article class="card" style="margin-top:20px"><h3>Hosting handoff checklist</h3><ul class="list-check"><li>Provide hosting provider, domain, and deployment command.</li><li>Provide or approve authentication API endpoints.</li><li>Provide database schema and environment variables privately.</li><li>Move localStorage activity into authenticated server records.</li><li>Add secure teacher/developer role checks on the server.</li></ul></article>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+  <script src="platform-portal.js"></script>
+</body>
+</html>

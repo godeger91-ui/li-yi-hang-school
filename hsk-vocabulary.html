@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Study 300 beginner Chinese words with tone-marked pinyin, meanings, pronunciation, progress tracking, and self-tests." />
+  <title>300 HSK Words and Exam Practice | Li Yi Hang Learning</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Li Yi Hang Learning home">
+        <span class="brand-mark">LY</span>
+        <span><strong>Li Yi Hang</strong><small>Learning Academy</small></span>
+      </a>
+      <div class="header-actions">
+        <button class="toggle-btn" id="themeToggle" aria-label="Toggle theme">🌙</button>
+        <a href="dashboard.html" class="secondary-btn">My progress</a>
+      </div>
+    </div>
+  </header>
+
+  <nav>
+    <div class="container nav-inner">
+      <a href="index.html">Home</a>
+      <a href="hsk1.html">HSK 1</a>
+      <a href="hsk2.html">HSK 2</a>
+      <a href="hsk-vocabulary.html" class="active">300-word trainer</a>
+      <a href="hsk-dialogues.html">Dialogue lab</a>
+      <a href="online-tests.html">Online Tests</a>
+    </div>
+  </nav>
+
+  <main class="container">
+    <section class="page-banner vocab-banner">
+      <div class="breadcrumbs">Home / Chinese / HSK 1–2</div>
+      <p class="eyebrow">Li Yi Hang Learning · Chinese Exam Practice</p>
+      <h1>300 words. Clear pinyin. Real progress.</h1>
+      <p>Review a beginner HSK 1–2 vocabulary set with tone marks, plain-English meanings, optional spoken pronunciation, and a short self-test that records your scores on this device.</p>
+      <div class="button-row">
+        <button id="startQuiz" class="primary-btn">Start 10-question test</button>
+        <a class="secondary-btn" href="#word-list">Study the word list</a>
+      </div>
+    </section>
+
+    <section class="vocab-progress" aria-label="Vocabulary progress">
+      <article class="progress-stat">
+        <span>Words learned</span>
+        <strong id="learnedCount">0 / 300</strong>
+        <div class="progress-bar"><span id="learnedBar"></span></div>
+      </article>
+      <article class="progress-stat">
+        <span>Best test score</span>
+        <strong id="bestScore">Not tested</strong>
+      </article>
+      <article class="progress-stat">
+        <span>Tests completed</span>
+        <strong id="testCount">0</strong>
+      </article>
+    </section>
+
+    <section id="quizPanel" class="card vocab-quiz" hidden aria-live="polite">
+      <div class="progress-bar"><span id="quizBar"></span></div>
+      <p id="quizProgress" class="subtle">Question 1 of 10</p>
+      <div id="quizPrompt" class="quiz-prompt"></div>
+      <div id="quizOptions" class="question-options"></div>
+      <p id="quizFeedback" class="quiz-feedback" aria-live="polite"></p>
+      <button id="quizNext" class="primary-btn">Check answer</button>
+      <div id="quizResult" class="quiz-result" hidden>
+        <h2>Test result</h2>
+        <p id="quizResultScore" class="result-score"></p>
+        <h3>Review</h3>
+        <ul id="quizReview" class="list-check"></ul>
+        <button class="secondary-btn" type="button" onclick="document.getElementById('startQuiz').click()">Try another test</button>
+      </div>
+    </section>
+
+    <section id="word-list" class="section">
+      <div class="section-head vocab-heading">
+        <div>
+          <h2>Vocabulary library</h2>
+          <p class="subtle">Mark a word learned to update your study progress.</p>
+        </div>
+        <strong id="wordCount" class="word-count">300 words</strong>
+      </div>
+      <div class="vocab-controls">
+        <label for="vocabSearch">Search Chinese, pinyin, or meaning
+          <input id="vocabSearch" type="search" placeholder="Try: péng you, friend, or 朋友" autocomplete="off" />
+        </label>
+        <label for="levelFilter">Level
+          <select id="levelFilter">
+            <option value="all">All 300 words</option>
+            <option value="1">HSK 1 · 150 words</option>
+            <option value="2">HSK 2 · 150 words</option>
+          </select>
+        </label>
+      </div>
+      <div class="table-wrap vocab-table-wrap">
+        <table class="vocab-table">
+          <thead><tr><th>Chinese</th><th>Pinyin</th><th>Meaning</th><th>Level</th><th>Progress</th></tr></thead>
+          <tbody id="vocabRows"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container"><p>Li Yi Hang Learning · Chinese HSK 1–2 practice</p></div>
+  </footer>
+  <script src="script.js"></script>
+  <script src="hsk-vocabulary.js"></script>
+</body>
+</html>

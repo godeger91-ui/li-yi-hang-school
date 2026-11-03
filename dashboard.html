@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Dashboard | Li Yi Hang Learning</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div class="container header-inner">
+      <div class="brand">
+        <div class="brand-mark">LY</div>
+        <div>
+          <strong>Li Yi Hang</strong>
+          <small>Learning Academy</small>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button class="toggle-btn" id="themeToggle" aria-label="Toggle theme">🌙</button>
+        <a href="admin.html" class="secondary-btn">Teacher / admin</a>
+        <a href="index.html" class="secondary-btn">Home</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="page-banner">
+      <div class="breadcrumbs">Home / Dashboard</div>
+      <h1>Student dashboard</h1>
+      <p>Keep your study progress together and ask a teacher for help when you get stuck.</p>
+    </section>
+
+    <section class="section grid-2">
+      <article class="card">
+        <h2>My learner profile</h2>
+        <p class="subtle">This profile is saved in this browser only.</p>
+        <form id="studentProfileForm" class="form-grid">
+          <label for="studentName">Name<input id="studentName" type="text" maxlength="70" placeholder="Your name" required /></label>
+          <label for="studentEmail">Email<input id="studentEmail" type="email" maxlength="120" placeholder="you@example.com" /></label>
+          <button type="submit" class="primary-btn">Save profile</button>
+          <p id="profileFeedback" class="subtle" aria-live="polite"></p>
+        </form>
+      </article>
+      <article class="card">
+        <h2>Ask a teacher</h2>
+        <form id="teacherRequestForm" class="form-grid">
+          <label for="helpSubject">Topic<select id="helpSubject"><option>Question about a lesson</option><option>Need help with a test</option><option>Report a course problem</option><option>Study plan advice</option></select></label>
+          <label for="helpMessage">Message<textarea id="helpMessage" maxlength="1000" required placeholder="Tell your teacher what you are working on and where you are stuck."></textarea></label>
+          <button type="submit" class="primary-btn">Send help request</button>
+          <p id="helpFeedback" class="subtle" aria-live="polite"></p>
+        </form>
+      </article>
+    </section>
+
+    <section class="card">
+      <h2>Teacher replies</h2>
+      <div id="studentMessageList"><p class="subtle">No help requests yet.</p></div>
+    </section>
+
+    <section class="section" id="studentCourseProgress">
+      <div class="section-head"><div><h2>My chapter progress</h2><p class="subtle">Your lesson checks update this overview automatically.</p></div></div>
+      <div class="student-course-grid">
+        <a class="student-course-progress" href="ai-courses.html"><span>AI learning</span><strong id="studentAiProgress">0 / 20 chapters</strong><div class="progress-bar"><span id="studentAiBar"></span></div></a>
+        <a class="student-course-progress" href="web-design.html"><span>Web design</span><strong id="studentWebProgress">0 / 24 chapters</strong><div class="progress-bar"><span id="studentWebBar"></span></div></a>
+        <a class="student-course-progress" href="it-courses.html"><span>IT fundamentals</span><strong id="studentItProgress">0 / 12 chapters</strong><div class="progress-bar"><span id="studentItBar"></span></div></a>
+        <a class="student-course-progress" href="hsk-dialogues.html"><span>Chinese speaking</span><strong id="studentDialogueProgress">0 turns practiced</strong><div class="progress-bar"><span id="studentDialogueBar"></span></div></a>
+      </div>
+    </section>
+
+    <div class="grid-4">
+      <article class="dashboard-card">
+        <h3>HSK words learned</h3>
+        <p><strong id="dashboardHskKnown">0 / 300</strong></p>
+      </article>
+      <article class="dashboard-card">
+        <h3>Best HSK test</h3>
+        <p><strong id="dashboardHskScore">Not tested</strong></p>
+      </article>
+      <article class="dashboard-card">
+        <h3>Average HSK score</h3>
+        <p><strong id="dashboardHskAverage">Not tested</strong></p>
+      </article>
+      <article class="dashboard-card">
+        <h3>HSK tests completed</h3>
+        <p><strong id="dashboardHskTests">0</strong></p>
+      </article>
+    </div>
+
+    <section class="card vocab-dashboard" id="dashboardHskProgress">
+      <div class="section-head">
+        <div><h2>Chinese vocabulary progress</h2><p class="subtle">Saved on this device from the HSK 1–2 trainer.</p></div>
+        <a href="hsk-vocabulary.html" class="primary-btn">Continue studying</a>
+      </div>
+      <div class="progress-bar"><span id="dashboardHskBar"></span></div>
+      <h3>Recent HSK self-tests</h3>
+      <div id="hskHistoryList"><p class="subtle">No HSK self-tests completed yet.</p></div>
+    </section>
+
+    <div class="section">
+      <div class="section-head"><h2>Continue learning</h2></div>
+      <div class="button-row">
+        <button id="generateCertificate" class="primary-btn" type="button">Download completion certificate</button>
+        <button id="exportStudentHistory" class="secondary-btn" type="button">Export test history</button>
+        <a href="hsk-vocabulary.html" class="primary-btn">Chinese vocabulary</a>
+        <a href="it-courses.html" class="secondary-btn">IT courses</a>
+        <a href="web-design.html" class="secondary-btn">Web design</a>
+        <a href="ai-courses.html" class="secondary-btn">AI courses</a>
+      </div>
+    </div>
+
+  </main>
+
+  <script src="script.js"></script>
+  <script src="platform-portal.js"></script>
+</body>
+</html>

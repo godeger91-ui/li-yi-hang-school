@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IT Courses | Li Yi Hang Learning</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-course="it-courses">
+  <header>
+    <div class="container header-inner">
+      <div class="brand">
+        <div class="brand-mark">LY</div>
+        <div>
+          <strong>Li Yi Hang</strong>
+          <small>Learning Academy</small>
+        </div>
+      </div>
+      <div class="search-wrap" role="search">
+        <span>🔎</span>
+        <input type="search" id="siteSearch" placeholder="Search IT lessons" />
+      </div>
+      <div class="header-actions">
+        <button class="toggle-btn" id="themeToggle" aria-label="Toggle theme">🌙</button>
+        <a href="index.html" class="secondary-btn">Home</a>
+      </div>
+    </div>
+  </header>
+
+  <nav>
+    <div class="container nav-inner">
+      <a href="index.html">Home</a>
+      <a href="it-courses.html" class="active">IT Courses</a>
+      <a href="web-design.html">Web Design</a>
+      <a href="ai-courses.html">AI Courses</a>
+      <a href="hsk-dialogues.html">Dialogue lab</a>
+      <a href="hsk1.html">HSK 1</a>
+      <a href="hsk2.html">HSK 2</a>
+      <a href="online-tests.html">Online Tests</a>
+      <a href="blog.html">Blog</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <main class="container">
+    <section class="page-banner course-banner">
+      <div class="breadcrumbs">Home / IT Courses</div>
+      <p class="eyebrow">Foundations · support · networking · security</p>
+      <h1 id="courseHeading">IT Fundamentals and Digital Skills</h1>
+      <p>Follow a complete beginner-to-IT-support roadmap covering hardware, operating systems, networks, security, productivity, backups, Linux, and career planning.</p>
+      <div class="course-progress-summary"><strong id="courseProgressText">0 of 12 chapters complete · 0%</strong><div class="progress-bar"><span id="courseProgressBar"></span></div></div>
+    </section>
+    <div class="course-player-layout">
+      <aside class="chapter-rail" aria-label="IT course chapters"><h2>IT roadmap</h2><div id="chapterList" class="chapter-list"></div></aside>
+      <article id="chapterStage" class="chapter-stage" aria-live="polite"></article>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+  <script src="course-player.js"></script>
+</body>
+</html>

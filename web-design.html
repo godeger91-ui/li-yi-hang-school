@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Web Design | Li Yi Hang Learning</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-course="web-design">
+  <header>
+    <div class="container header-inner">
+      <div class="brand">
+        <div class="brand-mark">LY</div>
+        <div>
+          <strong>Li Yi Hang</strong>
+          <small>Learning Academy</small>
+        </div>
+      </div>
+      <div class="search-wrap" role="search">
+        <span>🔎</span>
+        <input type="search" id="siteSearch" placeholder="Search design lessons" />
+      </div>
+      <div class="header-actions">
+        <button class="toggle-btn" id="themeToggle" aria-label="Toggle theme">🌙</button>
+        <a href="index.html" class="secondary-btn">Home</a>
+      </div>
+    </div>
+  </header>
+
+  <nav>
+    <div class="container nav-inner">
+      <a href="index.html">Home</a>
+      <a href="it-courses.html">IT Courses</a>
+      <a href="web-design.html" class="active">Web Design</a>
+      <a href="ai-courses.html">AI Courses</a>
+      <a href="hsk1.html">HSK 1</a>
+      <a href="hsk2.html">HSK 2</a>
+      <a href="hsk-dialogues.html">Chinese dialogue lab</a>
+      <a href="online-tests.html">Online Tests</a>
+      <a href="blog.html">Blog</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <main class="container">
+    <section class="page-banner course-banner">
+      <div class="breadcrumbs">Home / Web Design</div>
+      <p class="eyebrow">Build · test · improve</p>
+      <h1 id="courseHeading">Web Design and Front-End Development</h1>
+      <p>Learn by building. Each chapter pairs a clear explanation and a small practical task with a quiz that records your progress.</p>
+      <div class="course-progress-summary"><strong id="courseProgressText">0 of 24 chapters complete · 0%</strong><div class="progress-bar"><span id="courseProgressBar"></span></div></div>
+    </section>
+
+    <div class="course-player-layout">
+      <aside class="chapter-rail" aria-label="Web design course chapters"><h2>Course chapters</h2><div id="chapterList" class="chapter-list"></div></aside>
+      <article id="chapterStage" class="chapter-stage" aria-live="polite"></article>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+  <script src="course-player.js"></script>
+</body>
+</html>

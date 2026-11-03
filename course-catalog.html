@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Course Catalog | Li Yi Hang Learning</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header><div class="container header-inner">
+    <a class="brand" href="index.html"><span class="brand-mark">LY</span><span><strong>Li Yi Hang</strong><small>Learning Academy</small></span></a>
+    <div class="search-wrap" role="search"><span>🔎</span><input id="catalogSearch" type="search" placeholder="Search all courses and lessons" /></div>
+    <div class="header-actions"><button class="toggle-btn" id="themeToggle" aria-label="Toggle theme">🌙</button><a href="dashboard.html" class="secondary-btn">Dashboard</a></div>
+  </div></header>
+  <nav><div class="container nav-inner"><a href="index.html">Home</a><a href="course-catalog.html" class="active">All courses</a><a href="online-tests.html">Mock Tests</a><a href="blog.html">Blog</a><a href="about.html">About</a><a href="contact.html">Contact</a></div></nav>
+  <main class="container">
+    <section class="page-banner catalog-banner"><p class="eyebrow">Four learning departments</p><h1>Choose a learning path</h1><p>Browse complete IT, Web Designing, AI, and Chinese courses. Every course includes structured lessons, practice, glossary terms, a lesson quiz, and a final exam path.</p></section>
+    <div class="catalog-filter-row" role="group" aria-label="Filter courses by department"><button class="catalog-filter active" data-department="All">All</button><button class="catalog-filter" data-department="IT">IT</button><button class="catalog-filter" data-department="Web Designing">Web Designing</button><button class="catalog-filter" data-department="AI">AI</button><button class="catalog-filter" data-department="HSK">HSK</button></div>
+    <div id="courseCatalog" class="catalog-grid"></div>
+  </main>
+  <footer class="footer"><div class="container"><p>Li Yi Hang Learning · Complete course catalog</p></div></footer>
+  <script src="script.js"></script>
+  <script src="course-catalog.js"></script>
+  <script src="course-catalog-page.js"></script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Practice beginner Chinese conversations with pinyin, picture vocabulary cards, and spoken dialogue." />
+  <title>Chinese Dialogue Lab | Li Yi Hang Learning</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div class="container header-inner">
+      <a class="brand" href="index.html"><span class="brand-mark">LY</span><span><strong>Li Yi Hang</strong><small>Learning Academy</small></span></a>
+      <div class="header-actions"><button class="toggle-btn" id="themeToggle" aria-label="Toggle theme">🌙</button><a href="dashboard.html" class="secondary-btn">My progress</a></div>
+    </div>
+  </header>
+  <nav><div class="container nav-inner">
+    <a href="index.html">Home</a><a href="hsk1.html">HSK 1</a><a href="hsk2.html">HSK 2</a><a href="hsk-vocabulary.html">300 words</a><a href="hsk-dialogues.html" class="active">Dialogue lab</a><a href="online-tests.html">Tests</a>
+  </div></nav>
+
+  <main class="container">
+    <section class="page-banner dialogue-banner">
+      <div class="breadcrumbs">Home / Chinese / Speaking practice</div>
+      <p class="eyebrow">Listen · read · speak</p>
+      <h1>Chinese dialogue lab</h1>
+      <p>Practice short everyday conversations as presentation slides. Read the characters, follow the pinyin, hear each line, and rehearse it aloud.</p>
+      <div class="dialogue-topline">
+        <label for="dialogueSearch">Find a conversation<input id="dialogueSearch" type="search" placeholder="Try airport, food, school, shopping" /></label>
+        <label for="dialogueSelect">Scenario<select id="dialogueSelect"></select></label>
+        <span id="dialogueLibraryCount" class="subtle">150 conversations</span>
+        <span id="dialogueProgress" class="subtle">0 turns practiced</span>
+      </div>
+    </section>
+
+    <section class="dialogue-theater" aria-live="polite">
+      <div class="dialogue-scene" id="dialogueScene">
+        <div class="scene-number" id="sceneNumber">01 / 04</div>
+        <div class="scene-art" id="sceneArt" aria-hidden="true">👋</div>
+        <div class="scene-copy">
+          <span class="speaker-label" id="speakerLabel">Speaker</span>
+          <p class="dialogue-hanzi" id="dialogueHanzi"></p>
+          <p class="dialogue-pinyin" id="dialoguePinyin"></p>
+          <p class="dialogue-meaning" id="dialogueMeaning"></p>
+        </div>
+        <div class="slide-progress"><span id="slideProgress"></span></div>
+      </div>
+      <div class="dialogue-controls">
+        <button id="previousLine" class="icon-control" aria-label="Previous dialogue line" title="Previous line">←</button>
+        <button id="playLine" class="primary-btn">▶ Hear this line</button>
+        <button id="playDialogue" class="secondary-btn">▶ Play conversation</button>
+        <button id="practiceLine" class="secondary-btn">✓ Mark practiced</button>
+        <button id="nextLine" class="icon-control" aria-label="Next dialogue line" title="Next line">→</button>
+      </div>
+      <p id="voiceNote" class="subtle voice-note">Voice uses speech available in your browser and may sound different by device.</p>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><div><h2>Picture vocabulary</h2><p class="subtle">Use the visual cue, say the Chinese, then reveal pinyin and meaning.</p></div></div>
+      <div id="pictureVocabulary" class="picture-vocab-grid"></div>
+    </section>
+  </main>
+
+  <footer class="footer"><div class="container"><p>Li Yi Hang Learning · HSK speaking practice</p></div></footer>
+  <script src="script.js"></script>
+  <script src="hsk-dialogues.js"></script>
+</body>
+</html>

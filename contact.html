@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Contact the Li Yi Hang Learning team">
+<meta name="author" content="God Eger">
+<link rel="stylesheet" href="styles.css">
+<title>Li Yi Hang Learning — Contact</title>
+</head>
+<body>
+<header>
+  <h1 class="brand">⚡ <span>Li Yi Hang Learning</span></h1>
+  <p class="tagline">Contact Us · Built by <b>God Eger</b> &amp; <b>Li Yi Hang</b></p>
+</header>
+
+<nav>
+  <a href="index.html">🏠 Home</a>
+  <a href="course.html">📚 HTML5 Course</a>
+  <a href="quiz.html">📝 Quiz</a>
+  <a href="routine.html">📅 Routine</a>
+  <a href="tips.html">💡 Study Tips</a>
+  <a href="gellery.html">🖼️ Gallery</a>
+  <a href="contact.html" class="active">✉️ Contact</a>
+  <a href="about.html">👥 About</a>
+</nav>
+
+<main>
+  <div class="card">
+    <h3>✉️ Send Us a Message</h3>
+    <p style="color:#aaa;font-size:.9rem">This form is a live demo of <a href="course.html">Chapter 4 — Forms &amp; Input</a>. Try submitting with an empty field or a wrong email — the browser's built-in HTML5 validation stops you, exactly as taught in the course.</p>
+    <form style="margin-top:15px" onsubmit="sendMessage(event)">
+      <label class="lesson">Full Name
+        <input type="text" name="name" required placeholder="Your name" class="in">
+      </label>
+      <label class="lesson">Email
+        <input type="email" name="email" required placeholder="you@example.com" class="in">
+      </label>
+      <label class="lesson">Topic
+        <select name="topic" class="in" style="padding:12px;border-radius:10px;border:none">
+          <option>Question about a chapter</option>
+          <option>Found a mistake</option>
+          <option>Project idea</option>
+          <option>Just saying hello 👋</option>
+        </select>
+      </label>
+      <label class="lesson">Message
+        <textarea name="msg" required rows="4" placeholder="Write your message..." class="in"></textarea>
+      </label>
+      <button type="submit" class="b3" style="margin-top:10px">📨 Send Message</button>
+    </form>
+    <p id="sent" style="margin-top:15px;font-weight:bold;color:var(--c2);display:none"></p>
+  </div>
+
+  <div class="card" style="margin-top:20px">
+    <h3>💬 Recent Guestbook</h3>
+    <p style="color:#aaa;font-size:.9rem">Messages are saved with localStorage (Chapter 8!) and stay in your browser.</p>
+    <div id="gb"></div>
+  </div>
+</main>
+
+<footer>Made with ❤️ by <b>God Eger</b> &amp; <b>Li Yi Hang</b> · Li Yi Hang Learning © 2026</footer>
+
+<script>
+const inStyle=document.createElement('style');
+inStyle.textContent='.in{width:100%;margin-top:5px;padding:12px;border-radius:10px;border:none;font-size:1rem;background:#141426;color:#f5f6fa}textarea.in{resize:vertical}';
+document.head.appendChild(inStyle);
+
+function sendMessage(e){
+  e.preventDefault();
+  const f=e.target;
+  const msg={n:f.name.value,em:f.email.value,t:f.topic.value,m:f.msg.value,d:new Date().toLocaleDateString()};
+  const gb=JSON.parse(localStorage.getItem('es_gb')||'[]');
+  gb.unshift(msg);
+  localStorage.setItem('es_gb',JSON.stringify(gb.slice(0,10)));
+  const s=document.getElementById('sent');
+  s.textContent='✅ Thank you, '+msg.n+'! Your message was saved to the guestbook.';
+  s.style.display='block';
+  f.reset();
+  renderGb();
+}
+function renderGb(){
+  const gb=JSON.parse(localStorage.getItem('es_gb')||'[]');
+  document.getElementById('gb').innerHTML=gb.length?gb.map(g=>
+    '<div class="card" style="margin:10px 0;padding:15px"><b style="color:var(--c4)">'+g.n+'</b> <span style="color:#888;font-size:.8rem">'+g.d+' · '+g.t+'</span><p style="margin-top:6px">'+g.m+'</p></div>').join('')
+    :'<p style="color:#888">No messages yet — be the first!</p>';
+}
+renderGb();
+</script>
+</body>
+</html>

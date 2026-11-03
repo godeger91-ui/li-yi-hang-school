@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Student project gallery — websites and pages built while learning HTML5">
+<meta name="author" content="God Eger">
+<link rel="stylesheet" href="styles.css">
+<title>Li Yi Hang Learning — Gallery</title>
+<style>
+  .gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:15px}
+  .gal-item{position:relative;border-radius:15px;overflow:hidden;cursor:pointer;aspect-ratio:4/3}
+  .gal-item .ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;
+    font-size:3rem;transition:.4s}
+  .gal-item:hover .ph{transform:scale(1.1)}
+  .gal-item .cap{position:absolute;bottom:0;left:0;right:0;background:rgba(15,15,26,.85);
+    padding:10px 15px;font-size:.9rem;transform:translateY(100%);transition:.3s}
+  .gal-item:hover .cap{transform:none}
+  .lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:50;
+    align-items:center;justify-content:center;flex-direction:column}
+  .lightbox.show{display:flex;animation:fadeIn .3s}
+  .lightbox .big{font-size:6rem}
+  .lightbox p{margin:15px;font-size:1.2rem}
+</style>
+</head>
+<body>
+<header>
+  <h1 class="brand">⚡ <span>Li Yi Hang Learning</span></h1>
+  <p class="tagline">Project Gallery · Built by <b>God Eger</b> &amp; <b>Li Yi Hang</b></p>
+</header>
+
+<nav>
+  <a href="index.html">🏠 Home</a>
+  <a href="course.html">📚 HTML5 Course</a>
+  <a href="quiz.html">📝 Quiz</a>
+  <a href="routine.html">📅 Routine</a>
+  <a href="tips.html">💡 Study Tips</a>
+  <a href="gellery.html" class="active">🖼️ Gallery</a>
+  <a href="about.html">👥 About</a>
+</nav>
+
+<main>
+  <div class="card">
+    <h3>🖼️ Our Learning Projects</h3>
+    <p>Every thumbnail is a project we built while studying the <a href="course.html">HTML5 course</a>. Click any card to enlarge it. To use real photos, replace the emoji <code>&lt;div&gt;</code> with <code>&lt;img src="yourphoto.jpg" alt="..."&gt;</code> — a Chapter 2 skill!</p>
+  </div>
+
+  <div class="gal" style="margin-top:20px">
+    <div class="gal-item" onclick="openLb('🌐','My First Homepage — Chapter 1 project')">
+      <div class="ph" style="background:linear-gradient(135deg,#6c5ce7,#fd79a8)">🌐</div>
+      <div class="cap">My First Homepage — Chapter 1</div>
+    </div>
+    <div class="gal-item" onclick="openLb('📅','Class Timetable — Tables chapter project')">
+      <div class="ph" style="background:linear-gradient(135deg,#00cec9,#55efc4)">📅</div>
+      <div class="cap">Class Timetable — Chapter 3</div>
+    </div>
+    <div class="gal-item" onclick="openLb('📬','Registration Form — Forms chapter project')">
+      <div class="ph" style="background:linear-gradient(135deg,#fdcb6e,#e17055)">📬</div>
+      <div class="cap">Registration Form — Chapter 4</div>
+    </div>
+    <div class="gal-item" onclick="openLb('🎬','Video Landing Page — Multimedia chapter project')">
+      <div class="ph" style="background:linear-gradient(135deg,#74b9ff,#6c5ce7)">🎬</div>
+      <div class="cap">Video Landing Page — Chapter 6</div>
+    </div>
+    <div class="gal-item" onclick="openLb('📊','Study Chart App — Canvas API project')">
+      <div class="ph" style="background:linear-gradient(135deg,#fd79a8,#fdcb6e)">📊</div>
+      <div class="cap">Study Chart App — Chapter 10</div>
+    </div>
+    <div class="gal-item" onclick="openLb('🏆','Portfolio Final Project — Expert level')">
+      <div class="ph" style="background:linear-gradient(135deg,#55efc4,#00cec9)">🏆</div>
+      <div class="cap">Portfolio Final Project — Expert</div>
+    </div>
+  </div>
+</main>
+
+<div class="lightbox" id="lb" onclick="this.classList.remove('show')">
+  <div class="big" id="lbIcon"></div>
+  <p id="lbText"></p>
+  <button class="b3">✕ Close</button>
+</div>
+
+<footer>Made with ❤️ by <b>God Eger</b> &amp; <b>Li Yi Hang</b> · Li Yi Hang Learning © 2026</footer>
+
+<script>
+function openLb(icon,text){
+  document.getElementById('lbIcon').textContent=icon;
+  document.getElementById('lbText').textContent=text;
+  document.getElementById('lb').classList.add('show');
+}
+</script>
+</body>
+</html>

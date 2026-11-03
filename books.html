@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Free PDF book library for web development students">
+<meta name="author" content="God Eger">
+<link rel="stylesheet" href="styles.css">
+<title>Li Yi Hang Learning — Book Library</title>
+<style>
+  .books{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+  .book{background:var(--card);border-radius:15px;padding:20px;text-align:center;transition:.3s;
+    display:flex;flex-direction:column;justify-content:space-between}
+  .book:hover{transform:translateY(-8px);box-shadow:0 15px 30px rgba(108,92,231,.4)}
+  .book .cover{width:100%;height:220px;border-radius:10px;display:flex;align-items:center;
+    justify-content:center;font-size:4rem;margin-bottom:15px;overflow:hidden}
+  .book .cover img{width:100%;height:100%;object-fit:cover}
+  .book h3{color:var(--c4)}
+  .book p{font-size:.85rem;color:#aaa;margin:8px 0 15px;flex-grow:1}
+  .btns{display:flex;gap:8px;justify-content:center}
+  .btns a{text-decoration:none;padding:9px 16px;border-radius:20px;font-size:.85rem;font-weight:bold}
+  .btn-read{background:var(--c2);color:#111}
+  .btn-dl{background:var(--c1);color:#fff}
+  .reader{display:none;position:fixed;inset:0;background:rgba(0,0,0,.95);z-index:60;flex-direction:column}
+  .reader.show{display:flex;animation:fadeIn .3s}
+  .reader-bar{padding:10px 20px;display:flex;justify-content:space-between;align-items:center;background:#1b1b2f}
+  .reader-bar button{padding:8px 20px}
+  .reader iframe{flex:1;width:100%;border:none;background:#fff}
+</style>
+</head>
+<body>
+<header>
+  <h1 class="brand">⚡ <span>Li Yi Hang Learning</span></h1>
+  <p class="tagline">Book Library · Built by <b>God Eger</b> &amp; <b>Li Yi Hang</b></p>
+</header>
+
+<nav>
+  <a href="index.html">🏠 Home</a>
+  <a href="course.html">📚 HTML5 Course</a>
+  <a href="css-course.html">🎨 CSS Course</a>
+  <a href="books.html" class="active">📖 Books</a>
+  <a href="quiz.html">📝 Quiz</a>
+  <a href="routine.html">📅 Routine</a>
+  <a href="tips.html">💡 Study Tips</a>
+  <a href="gellery.html">🖼️ Gallery</a>
+  <a href="contact.html">✉️ Contact</a>
+  <a href="about.html">👥 About</a>
+</nav>
+
+<main>
+  <div class="card">
+    <h3>📖 Our PDF Library</h3>
+    <p>Click <b>Read</b> to open any book inside the website, or <b>Download</b> to save it. To add a new book, copy its PDF into the <code>books</code> folder and copy one book card below — change the title, description, and the PDF filename.</p>
+  </div>
+
+  <div class="books" style="margin-top:20px">
+
+    <div class="book">
+      <div class="cover" style="background:linear-gradient(135deg,#6c5ce7,#fd79a8)">📗</div>
+      <h3>LINUX FOR BEGINNERS BY EGER</h3>
+      <p>Beginner-friendly introduction covering core Linux and web study basics.</p>
+      <div class="btns">
+        <a class="btn-read" href="#" onclick="openBook(event,'books/Linux%20For%20Starter.pdf')">👁️ Read</a>
+        <a class="btn-dl" href="books/Linux%20For%20Starter.pdf" download>⬇️ Download</a>
+      </div>
+    </div>
+
+    <div class="book">
+      <div class="cover" style="background:linear-gradient(135deg,#00cec9,#55efc4)">📘</div>
+      <h3>WIFI HACKING BY EGER</h3>
+      <p>Learn how common Wi-Fi attacks work and how to protect against them.</p>
+      <div class="btns">
+        <a class="btn-read" href="#" onclick="openBook(event,'books/WiFi%20hacking%20book%20pdf.pdf')">👁️ Read</a>
+        <a class="btn-dl" href="books/WiFi%20hacking%20book%20pdf.pdf" download>⬇️ Download</a>
+      </div>
+    </div>
+
+    <div class="book">
+      <div class="cover" style="background:linear-gradient(135deg,#fdcb6e,#e17055)">📙</div>
+      <h3>Cyber Security</h3>
+      <p>The best beginner-friendly guide to online safety, threats, and prevention.</p>
+      <div class="btns">
+        <a class="btn-read" href="#" onclick="openBook(event,'books/cyber-security.pdf')">👁️ Read</a>
+        <a class="btn-dl" href="books/cyber-security.pdf" download>⬇️ Download</a>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<div class="reader" id="reader">
+  <div class="reader-bar">
+    <b id="bookName" style="color:var(--c2)"></b>
+    <div>
+      <a id="dlLink" class="btn-dl" href="#" download style="text-decoration:none;padding:8px 16px;border-radius:20px;font-size:.85rem;margin-right:8px">⬇️ Download</a>
+      <button class="b2" onclick="closeBook()">✕ Close</button>
+    </div>
+  </div>
+  <iframe id="pdfView" src=""></iframe>
+</div>
+
+<footer>Made with ❤️ by <b>God Eger</b> &amp; <b>Li Yi Hang</b> · Li Yi Hang Learning © 2026</footer>
+
+<script>
+function openBook(e,path){
+  e.preventDefault();
+  document.getElementById('pdfView').src=path;
+  document.getElementById('bookName').textContent=decodeURIComponent(path.split('/').pop());
+  document.getElementById('dlLink').href=path;
+  document.getElementById('reader').classList.add('show');
+}
+function closeBook(){
+  document.getElementById('reader').classList.remove('show');
+  document.getElementById('pdfView').src='';
+}
+</script>
+</body>
+</html>

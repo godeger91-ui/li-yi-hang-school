@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The complete HTML5 course from beginner to expert — 10 chapters with study notes, examples and practice exercises">
+<meta name="author" content="God Eger">
+<link rel="stylesheet" href="styles.css">
+<title>Li Yi Hang Learning — HTML5 Course</title>
+</head>
+<body>
+<header>
+  <h1 class="brand">⚡ <span>Li Yi Hang Learning</span></h1>
+  <p class="tagline">The Complete HTML5 Course · Built by <b>God Eger</b> &amp; <b>Li Yi Hang</b></p>
+</header>
+
+<nav>
+  <a href="index.html">🏠 Home</a>
+  <a href="course.html" class="active">📚 HTML5 Course</a>
+  <a href="quiz.html">📝 Quiz</a>
+  <a href="routine.html">📅 Routine</a>
+  <a href="tips.html">💡 Study Tips</a>
+  <a href="about.html">👥 About</a>
+</nav>
+
+<main>
+  <div class="card">
+    <h3>📈 Your Progress</h3>
+    <div class="bar"><div id="progBar">0%</div></div>
+    <p style="margin-top:8px;font-size:.85rem;color:#aaa">Check off each lesson as you complete it. Progress is saved in your browser automatically — close the page and come back tomorrow, it will still be here.</p>
+  </div>
+
+  <div class="chapter"><div class="ch-head" onclick="tog(this)"><span>Chapter 1 — What is HTML? 🌱</span><span class="lv beginner">Beginner</span></div>
+  <div class="ch-body">
+    <p><b>HTML</b> (HyperText Markup Language) is the standard language for creating web pages. "HyperText" means text that contains links to other text, and "Markup" means tagging content so the browser knows what each part means.</p>
+    <p><b>How a website works:</b> you write HTML in a file, the browser reads the file and renders it visually. HTML describes <i>structure</i>, CSS describes <i>style</i>, JavaScript describes <i>behavior</i>. These are the three core languages of the web.</p>
+    <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;My Page&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Hello World!&lt;/h1&gt;
+    &lt;p&gt;My first paragraph.&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+    <p><b>Parts of the structure:</b> <code>&lt;!DOCTYPE html&gt;</code> tells the browser this is HTML5. <code>&lt;html&gt;</code> is the root element. <code>&lt;head&gt;</code> holds invisible information like the title. <code>&lt;body&gt;</code> holds everything the user sees. Tags usually come in pairs — opening tag and closing tag with a <code>/</code>.</p>
+    <div class="tip">💡 Every website you have ever visited — Google, WeChat Web, YouTube — is built with HTML.</div>
+    <div class="ex"><b>📝 Practice:</b> Open Notepad, type the code above, save it as <code>mypage.html</code>, then double-click it. Congratulations — you just made your first web page!</div>
+    <label class="lesson"><input type="checkbox" class="lesson-chk"> Lesson 1.1: What HTML stands for and does</label>
+    <label class="lesson"><input type="checkbox" class="lesson-chk"> Lesson 1.2: Structure: DOCTYPE, html, head, body</label>
+    <label class="lesson"><input type="checkbox" class="lesson-chk"> Lesson 1.3: HTML vs CSS vs JavaScript roles</label>
+  </div></div>
+
+  <div class="chapter"><div class="ch-head" onclick="tog(this)"><span>Chapter 2 — Text, Links &amp; Images ✍️</span><span class="lv beginner">Beginner</span></div>
+  <div class="ch-body">
+    <p>Headings run from <code>&lt;h1&gt;</code> (biggest) to <code>&lt;h6&gt;</code> (smallest). Use only one <code>&lt;h1&gt;</code> per page. Paragraphs use <code>&lt;p&gt;</code>. Links use <code>&lt;a href=""&gt;</code> — the "hyper" in hyperText. Images use <code>&lt;img src=""&gt;</code>.</p>
+    <pre><code>&lt;a href="https://www.w3schools.com"&gt;Visit W3Schools&lt;/a&gt;
+&lt;a href="page2.html"&gt;Relative link to my own page&lt;/a&gt;
+&lt;a href="#section1"&gt;Jump inside this page&lt;/a&gt;
+&lt;img src="photo.jpg" alt="A description of the image" width="300"&gt;
+&lt;b&gt;Bold&lt;/b&gt; · &lt;i&gt;Italic&lt;/i&gt; · &lt;mark&gt;Highlighted&lt;/mark&gt; · &lt;small&gt;Small&lt;/small&gt;</code></pre>
+    <p><b>Two kinds of links:</b> <i>absolute</i> links contain a full URL (<code>https://…</code>) and go to other websites. <i>Relative</i> links point to files in your own project folder. Anchor links with <code>#</code> jump within the same page.</p>
+    <div class="tip">💡 Always add the <code>alt</code> attribute to images — it helps blind users and improves your grade on accessibility.</div>
+    <div class="ex"><b>📝 Practice:</b> Create a page with an h1 title, a paragraph about your hometown, a photo, and a link back to your school's website.</div>
+    <label class="lesson"><input type="checkbox" class="lesson-chk"> Lesson 2.1: Headings and paragraphs</label>
+    <label class="lesson"><input type="checkbox" class="lesson-chk"> Lesson 2.2: Links (absolute vs relative vs anchor)</label>
+    <label class="lesson"><input type="checkbox" class="lesson-chk"> Lesson 2.3: Images, alt text and text formatting</label>
+  </div></div>
+
+  <div class="chapter"><div class="ch-head" onclick="tog(this)"><span>Chapter 3 — Lists &amp; Tables 📋</span><span class="lv beginner">Beginner</span></div>
+  <div class="ch-body">
+    <p>Three types of lists: <b>unordered</b> <code>&lt;ul&gt;</code> (bullet points), <b>ordered</b> <code>&lt;ol&gt;</code> (numbered), and <b>description lists</b> <code>&lt;dl&gt;</code> (term + definition pairs).</p>
+    <pre><code>&lt;ul&gt;
+  &lt;li&gt;Apple&lt;/li&gt;
+  &lt;li&gt;Banana&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol start="3" type="A"&gt;
+  &lt;li&gt;Step C&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;table&gt;
+  &lt;caption&gt;Class Roster&lt;/caption&gt;
+  &lt;tr&gt;&lt;th&gt;Name&lt;/th&gt;&lt;th&gt;Age&lt;/th&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;God Eger&lt;/td&gt;&lt;td&gt;20&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+    <p><b>Table anatomy:</b> <code>&lt;table&gt;</code> wraps everything, <code>&lt;tr&gt;</code> is a row, <code>&lt;th&gt;</code> is a header cell (bold, centered), <code>&lt;td&gt;</code> is a data cell, <code>&lt;caption&gt;</code> names the table.</p>
+    <div class="tip">💡 Use tables for real grid data like timetables and prices — not for page layout. Layout is CSS's job.</div>
+    <div class="ex"><b>📝 Practice:</b> Build a weekly class timetable as a table with days as columns and subjects as rows.</div>
+    <label class="lesson"><input type="checkbox" class="lesson-chk"> Lesson 3.1: Ordered, unordered and description lists</label>
+    <label class="lesson"><input type="checkbox" class="lesson-chk"> Lesson 3.2: Tables with table, tr, th, td, caption</label>
+  </div></div>
+
+  <div class="chapter"><div class="ch-head" onclick="tog(this)"><span>Chapter 4 — Forms &amp; Input 📬</span><span class="lv intermediate">Intermediate</span></div>
+  <div class="ch-body">
+    <p>Forms collect user data — logins, search bars, contact pages, surveys.</p>
+    <pre><code>&lt;form action="/submit" method="post"&gt;
+  &lt;label&gt;Name: &lt;input type="text" name="name" required&gt;&lt;/label&gt;
+  &lt;label&gt;Email: &lt;input type="email" name="email"&gt;&lt;/label&gt;
+  &lt;label&gt;Age: &lt;input type="number" min="1" max="120"&gt;&lt;/label&gt;
+  &lt;label&gt;&lt;input type="radio" name="gender" value="m"&gt; Male&lt;/label&gt;
+  &lt;label&gt;&lt;input type="checkbox" name="ok"&gt; I agree&lt;/label&gt;
+  &lt;select&gt;&lt;option&gt;China&lt;/option&gt;&lt;option&gt;Other&lt;/option&gt;&lt;/select&gt;
+  &lt;textarea rows="3"&gt;&lt;/textarea&gt;
+  &lt;input type="submit" value="Send"&gt;
+&lt;/form&gt;</code></pre>
+    <p><b>method</b> "get" appends data to the URL (for searches) while "post" sends it hidden (for logins). The <code>name</code> attribute is what the server receives; <code>required</code> blocks empty submission.</p>
+    <div class="tip">💡 HTML5 input types: <code>email</code>, <code>number</code>, <code>date</code>, <code>range</code>, <code>color</code>, <code>file</code>, <code>tel</code> — the browser does validation for free!</div>
+    <div class="ex"><b>📝 Practice:</b> Build a "Student Registration" form with name, email, date of birth, country dropdown and a submit button. Try submitting empty — the browser should stop you.</div>
+    <label class="lesson"><input type="checkbox" class="lesson-chk"> Lesson 4.1: Form structure, get vs post, labels</label>
+    <label class="lesson"><input type="checkbox" class="lesson-chk"> Lesson 4.2: HTML5 input types &amp; validation</label>
+  </div></div>
+
+  <div class="chapter"><div class="ch-head" onclick="tog(this)"><span>Chapter 5 — Semantic HTML5 🧩</span><span class="lv intermediate">Intermediate</span></div>
+  <div class="ch-body">
+    <p>HTML5 introduced <b>semantic tags</b> that describe the meaning of content instead of just grouping it:</p>
+    <pre><code>&lt;header&gt;  — top of page, logo &amp; nav
+&lt;nav&gt;     — navigation links
+&lt;main&gt;    — main unique content (only one per page!)
+&lt;section&gt; — a grouped topic section with heading
+&lt;article&gt; — self-contained post or news item
+&lt;aside&gt;   — sidebar or related content
+&lt;figure&gt;  — image with caption &lt;figcaption&gt;
+&lt;footer&gt;  — bottom of page, credits</code></pre>
+    <p><b>section vs article:</b> a <code>&lt;section&gt;</code> is a thematic grouping that belongs to the page; an <code>&lt;article&gt;</code> makes sense on its own, like a blog post or product card. Use <code>&lt;div&gt;</code> only when no semantic meaning applies.</p>
+    <div class="tip">💡 Semantic tags are loved by teachers, employers, and Google — they replace the old "div soup" and improve SEO and screen-reader support.</div>
+    <div class="ex"><b>📝 Practice:</b> Rebuild your Chapter 1 page using header, nav, main, section and footer.</div>
+    <label class="lesson"><input type="checkbox" class="lesson-chk"> Lesson 5.1: The semantic layout tags</label>
+    <label class="lesson"><input type="checkbox" class="lesson-chk"> Lesson 5.2: section vs article vs div</label>
+    <label class="lesson"><input type="checkbox" class="lesson-chk"> Lesson 5.3: Why semantics matter (SEO &amp; accessibility)</label>
+  </div></div>
+
+  <div class="chapter"><div class="ch-head" onclick="tog(this)"><span>Chapter 6 — Multimedia: Audio, Video &amp; Canvas 🎬</span><span class="lv intermediate">Intermediate</span></div>
+  <div class="ch-body">
+    <pre><code>&lt;video src="movie.mp4" controls autoplay muted loop poster="cover.jpg"&gt;&lt;/video&gt;
+&lt;audio src="song.mp3" controls&gt;&lt;/audio&gt;
+&lt;iframe src="https://www.youtube.com/embed/VIDEO_ID" width="560" height="315"&gt;&lt;/iframe&gt;
+&lt;canvas id="draw" width="400" height="200"&gt;&lt;/canvas&gt;</code></pre>
+    <p>HTML5 ended the Flash era — native video/audio with <code>controls</code>. MP4 (H.264) for video and MP3 for audio are supported everywhere. <code>autoplay</code> requires <code>muted</code> in modern browsers.</p>
+    <p>The <code>&lt;canvas&gt;</code> tag is a blank drawable surface controlled by JavaScript — the routine chart on this site is drawn with it. Canvas draws pixels; SVG draws shapes that scale infinitely.</p>
+    <div class="tip">💡 Provide multiple sources with <code>&lt;source&gt;</code> inside video/audio so every browser finds a format it can play.</div>
+    <div class="ex"><b>📝 Practice:</b> Embed a video, an audio file, and a YouTube video on one page using an iframe.</div>
+    <label class="lesson"><input type="checkbox" class="lesson-chk"> Lesson 6.1: Video and audio elements and formats</label>
+    <label class="lesson"><input type="checkbox" class="lesson-chk"> Lesson 6.2: iframes for embedding</label>
+    <label class="lesson"><input type="checkbox" class="lesson-chk"> Lesson 6.3: Canvas vs SVG basics</label>
+  </div></div>
+
+  <div class="chapter"><div class="ch-head" onclick="tog(this)"><span>Chapter 7 — Entities, Escaping &amp; Advanced Tables 🔣</span><span class="lv intermediate">Intermediate</span></div>
+  <div class="ch-body">
+    <p>Some characters are special because they are part of HTML syntax itself. To display them, escape them with <b>entities</b>:</p>
+    <pre><code>&amp;lt;  → shows &lt;    &amp;gt;  → shows &gt;
+&amp;amp; → shows &amp;    &amp;quot; → shows "
+&amp;copy; → shows ©    &amp;nbsp; → non-breaking space
+&amp;#2734; → any Unicode symbol by number code</code></pre>
+    <p><b>Advanced tables:</b> merge cells with <code>colspan</code> (across columns) and <code>rowspan</code> (down rows). Group long tables with <code>&lt;thead&gt;</code>, <code>&lt;tbody&gt;</code> and <code>&lt;tfoot&gt;</code>.</p>
+    <pre><code>&lt;tr&gt;&lt;th colspan="2"&gt;Full Name&lt;/th&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td rowspan="2"&gt;China&lt;/td&gt;&lt;td&gt;Beijing&lt;/td&gt;&lt;/tr&gt;
+   &lt;tr&gt;&lt;td&gt;Shanghai&lt;/td&gt;&lt;/tr&gt;</code></pre>
+    <div class="ex"><b>📝 Practice:</b> Write "&lt;html&gt; rocks &amp; rolls © 2026" so it displays exactly like that on screen.</div>
+    <label class="lesson"><input type="checkbox" class="lesson-chk"> Lesson 7.1: HTML entities and escaping</label>
+    <label class="lesson"><input type="checkbox" class="lesson-chk"> Lesson 7.2: Merging cells with colspan/rowspan</label>
+    <label class="lesson"><input type="checkbox" class="lesson-chk"> Lesson 7.3: thead, tbody, tfoot grouping</label>
+  </div></div>
+
+  <div class="chapter"><div class="ch-head" onclick="tog(this)"><span>Chapter 8 — Metadata, SEO &amp; Web Storage ⚙️</span><span class="lv advanced">Advanced</span></div>
+  <div class="ch-body">
+    <pre><code>&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;meta name="description" content="A helpful study website"&gt;
+  &lt;meta name="author" content="God Eger"&gt;
+  &lt;link rel="icon" href="favicon.png"&gt;
+&lt;/head&gt;</code></pre>
+    <p><b>Why these matter:</b> <code>charset</code> lets you write Chinese and English together safely. The <code>viewport</code> meta makes sites usable on phones — without it, mobile browsers zoom out. The <code>description</code> meta is what Google shows under your title in search results (that is SEO — Search Engine Optimization).</p>
+    <p>HTML5 added <b>Web Storage</b>: <code>localStorage</code> persists forever, <code>sessionStorage</code> clears when the tab closes. This website uses it to save your progress.</p>
+    <pre><code>localStorage.setItem("progress", "50");
+localStorage.getItem("progress");
+localStorage.removeItem("progress");
+sessionStorage.setItem("temp", "gone later");</code></pre>
+    <div class="ex"><b>📝 Practice:</b> Write a page that asks the visitor's name once, saves it with localStorage, and greets them by name on every return visit.</div>
+    <label class="lesson"><input type="checkbox" class="lesson-chk"> Lesson 8.1: Meta tags, charset, viewport &amp; favicon</label>
+    <label class="lesson"><input type="checkbox" class="lesson-chk"> Lesson 8.2: SEO basics and search descriptions</label>
+    <label class="lesson"><input type="checkbox" class="lesson-chk"> Lesson 8.3: localStorage &amp; sessionStorage</label>
+  </div></div>
+
+  <div class="chapter"><div class="ch-head" onclick="tog(this)"><span>Chapter 9 — Accessibility &amp; Performance 🦾</span><span class="lv advanced">Advanced</span></div>
+  <div class="ch-body">
+    <div class="tip">💡 Accessibility (a11y) = making the web usable for everyone, including blind, deaf and disabled users. Many countries legally require it.</div>
+    <p><b>Accessibility rules:</b> every image needs <code>alt</code>, every input needs a <code>&lt;label&gt;</code>, use <code>aria-label</code> for icon-only buttons, keep heading order logical (one h1, then h2…), ensure color contrast of at least 4.5:1, and make everything keyboard-operable with <code>tabindex</code>.</p>
+    <pre><code>&lt;button aria-label="Close dialog"&gt;✕&lt;/button&gt;
+&lt;img src="chart.png" alt="Study hours increased by 20% in October"&gt;
+&lt;html lang="en"&gt;</code></pre>
+    <p><b>Performance rules:</b> compress images, load scripts with <code>defer</code>, lazy-load below-the-fold images, use modern formats like WebP.</p>
+    <pre><code>&lt;script src="app.js" defer&gt;&lt;/script&gt;
+&lt;img src="photo.webp" loading="lazy" alt="..."&gt;</code></pre>
+    <div class="ex"><b>📝 Practice:</b> Open your own page using only the keyboard — no mouse. Can you reach every button and link with Tab? If not, fix it.</div>
+    <label class="lesson"><input type="checkbox" class="lesson-chk"> Lesson 9.1: ARIA attributes, labels &amp; keyboard access</label>
+    <label class="lesson"><input type="checkbox" class="lesson-chk"> Lesson 9.2: Heading hierarchy &amp; contrast</label>
+    <label class="lesson"><input type="checkbox" class="lesson-chk"> Lesson 9.3: Performance and lazy loading</label>
+  </div></div>
+
+  <div class="chapter"><div class="ch-head" onclick="tog(this)"><span>Chapter 10 — HTML5 APIs &amp; Modern Web 🔮</span><span class="lv expert">Expert</span></div>
+  <div class="ch-body">
+    <p>HTML5 is more than tags — it ships with powerful JavaScript APIs built into the browser:</p>
+    <ul>
+      <li><b>Geolocation</b> — find the user's location</li>
+      <li><b>Drag &amp; Drop</b> — draggable elements and file uploads</li>
+      <li><b>Web Workers</b> — background processing without freezing the page</li>
+      <li><b>History API</b> — change the URL without reloading</li>
+      <li><b>Canvas + WebGL</b> — games and 3D graphics</li>
+      <li><b>WebSockets</b> — real-time two-way communication for chat apps</li>
+      <li><b>Service Workers</b> — offline web apps, the engine behind PWAs</li>
+      <li><b>Notifications &amp; Vibration</b> — system-level alerts</li>
+    </ul>
+    <pre><code>navigator.geolocation.getCurrentPosition(pos =&gt;
+  console.log(pos.coords.latitude, pos.coords.longitude));
+
+const ws = new WebSocket("wss://example.com/chat");
+ws.onmessage = e =&gt; console.log("New:", e.data);</code></pre>
+    <p><b>Modern expert workflow:</b> validate with the W3C validator, test with DevTools (F12), use responsive design mode, deploy free on GitHub Pages or Netlify, follow progressive enhancement — the site works even if JavaScript fails.</p>
+    <div class="tip">💡 After mastering HTML5, continue with CSS (Flexbox/Grid), then JavaScript — that path is called "front-end developer". Then frameworks like React or Vue.</div>
+    <div class="ex"><b>📝 Final Project:</b> Build a complete personal portfolio site: semantic layout, working contact form, embedded video, localStorage guestbook, keyboard accessibility. That project earns the "expert" title.</div>
+    <label class="lesson"><input type="checkbox" class="lesson-chk"> Lesson 10.1: Geolocation &amp; Drag-and-Drop APIs</label>
+    <label class="lesson"><input type="checkbox" class="lesson-chk"> Lesson 10.2: WebSockets, Workers &amp; Service Workers</label>
+    <label class="lesson"><input type="checkbox" class="lesson-chk"> Lesson 10.3: Validation, DevTools &amp; deployment</label>
+    <label class="lesson"><input type="checkbox" class="lesson-chk"> Lesson 10.4: Final portfolio project &amp; learning path</label>
+  </div></div>
+</main>
+
+<footer>Made with ❤️ by <b>God Eger</b> &amp; <b>Li Yi Hang</b> · Li Yi Hang Learning © 2026</footer>
+
+<script>
+function tog(h){h.parentNode.classList.toggle('open');}
+const KEYS=[...document.querySelectorAll('.lesson-chk')];
+KEYS.forEach((c,i)=>{c.checked=localStorage.getItem('es_les'+i)==='1';
+  c.onchange=()=>{localStorage.setItem('es_les'+i,c.checked?1:0);updateProg();};});
+function updateProg(){
+  const n=KEYS.filter(c=>c.checked).length, pct=Math.round(n/KEYS.length*100);
+  const bar=document.getElementById('progBar');
+  bar.style.width=pct+'%';bar.textContent=n+' / '+KEYS.length+' lessons — '+pct+'%';
+}
+updateProg();
+</script>
+</body>
+</html>

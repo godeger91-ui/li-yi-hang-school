@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Test your HTML5 knowledge with 12 interactive questions">
+<meta name="author" content="God Eger">
+<link rel="stylesheet" href="styles.css">
+<title>Li Yi Hang Learning — Quiz</title>
+</head>
+<body>
+<header>
+  <h1 class="brand">⚡ <span>Li Yi Hang Learning</span></h1>
+  <p class="tagline">HTML5 Knowledge Quiz · Built by <b>God Eger</b> &amp; <b>Li Yi Hang</b></p>
+</header>
+
+<nav>
+  <a href="index.html">🏠 Home</a>
+  <a href="course.html">📚 HTML5 Course</a>
+  <a href="quiz.html" class="active">📝 Quiz</a>
+  <a href="routine.html">📅 Routine</a>
+  <a href="tips.html">💡 Study Tips</a>
+  <a href="about.html">👥 About</a>
+</nav>
+
+<main>
+  <div class="card">
+    <h3>🏆 Best Score: <span id="best" style="color:var(--c4)">—</span></h3>
+    <p style="color:#aaa;font-size:.85rem">Your best score is saved automatically. Beat it!</p>
+  </div>
+  <div class="card" style="margin-top:20px">
+    <h3>📝 HTML5 Knowledge Quiz</h3>
+    <p id="qText" style="font-size:1.15rem;margin:15px 0"></p>
+    <div id="qOpts"></div>
+    <p id="qResult" style="margin-top:15px;font-weight:bold;color:var(--c2)"></p>
+    <button class="b3" onclick="nextQ()" style="margin-top:10px">✅ Check Answer</button>
+    <button class="b1" onclick="loadQ()" style="margin-top:10px">➡️ Skip</button>
+    <button class="b2" onclick="restart()" style="margin-top:10px">🔄 Restart</button>
+  </div>
+</main>
+
+<footer>Made with ❤️ by <b>God Eger</b> &amp; <b>Li Yi Hang</b> · Li Yi Hang Learning © 2026</footer>
+
+<script>
+const QS=[
+ {q:"What does HTML stand for?",o:["HyperText Markup Language","Home Tool Markup Language","Hyperlinks and Text Markup Language","Hyper Machine Text Language"],a:0},
+ {q:"Which tag creates a hyperlink?",o:["<link>","<a>","<href>","<url>"],a:1},
+ {q:"Which HTML5 tag wraps the main navigation links?",o:["<menu>","<top>","<nav>","<header>"],a:2},
+ {q:"Which input type validates an email for free?",o:['type="text"','type="email"','type="mail"','type="check"'],a:1},
+ {q:"Which attribute makes an image accessible to blind users?",o:["title","src","alt","desc"],a:2},
+ {q:"Where does the main unique content of a page go?",o:["<main>","<div>","<body>","<aside>"],a:0},
+ {q:"Which tag draws graphics with JavaScript?",o:["<graphic>","<draw>","<paint>","<canvas>"],a:3},
+ {q:"How do you show the < character on a page?",o:["type it directly","&lt;","<<","\\<"],a:1},
+ {q:"Which meta tag makes a site work on phones?",o:["viewport","mobile","responsive","scale"],a:0},
+ {q:"Which HTML5 feature saves data after the browser closes?",o:["sessionStorage","cookies only","localStorage","cache only"],a:2},
+ {q:"Which tag should wrap a self-contained blog post?",o:["<section>","<article>","<div>","<aside>"],a:1},
+ {q:"What does defer do on a script tag?",o:["blocks the page","stops the script","runs it after HTML parsing","deletes it"],a:2}
+];
+let qi=0,score=0;
+const bestEl=document.getElementById('best');
+const saved=localStorage.getItem('es_best');
+if(saved)bestEl.textContent=saved+' / '+QS.length;
+function loadQ(){
+  if(qi>=QS.length){
+    document.getElementById('qText').innerHTML='🎉 Quiz complete! Score: <b style="color:var(--c4)">'+score+'/'+QS.length+'</b>';
+    document.getElementById('qOpts').innerHTML='';
+    document.getElementById('qResult').textContent='';
+    if(!saved||score>+saved)localStorage.setItem('es_best',score);
+    bestEl.textContent=Math.max(score,+(saved||0))+' / '+QS.length;
+    return;
+  }
+  const q=QS[qi];
+  document.getElementById('qResult').textContent='';
+  document.getElementById('qText').textContent='Q'+(qi+1)+'. '+q.q;
+  document.getElementById('qOpts').innerHTML=q.o.map((o,i)=>
+    '<label class="lesson"><input type="radio" name="q" value="'+i+'"> '+o+'</label>').join('');
+}
+function nextQ(){
+  const s=document.querySelector('input[name=q]:checked');
+  if(!s)return alert('Choose an answer first!');
+  const q=QS[qi];
+  if(+s.value===q.a){score++;document.getElementById('qResult').textContent='✅ Correct!';}
+  else document.getElementById('qResult').textContent='❌ Wrong — correct answer: '+q.o[q.a];
+  setTimeout(()=>{qi++;loadQ();},900);
+}
+function restart(){qi=0;score=0;loadQ();}
+loadQ();
+</script>
+</body>
+</html>

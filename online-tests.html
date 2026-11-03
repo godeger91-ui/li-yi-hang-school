@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Online Tests | Li Yi Hang Learning</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div class="container header-inner">
+      <div class="brand">
+        <div class="brand-mark">LY</div>
+        <div>
+          <strong>Li Yi Hang</strong>
+          <small>Learning Academy</small>
+        </div>
+      </div>
+      <div class="search-wrap" role="search">
+        <span>🔎</span>
+        <input type="search" id="siteSearch" placeholder="Search tests, courses, vocabulary..." />
+      </div>
+      <div class="header-actions">
+        <button class="toggle-btn" id="themeToggle" aria-label="Toggle theme">🌙</button>
+        <a href="index.html" class="secondary-btn">Home</a>
+      </div>
+    </div>
+  </header>
+
+  <nav>
+    <div class="container nav-inner">
+      <a href="index.html">Home</a>
+      <a href="it-courses.html">IT Courses</a>
+      <a href="web-design.html">Web Design</a>
+      <a href="ai-courses.html">AI Courses</a>
+      <a href="hsk1.html">HSK 1</a>
+      <a href="hsk2.html">HSK 2</a>
+      <a href="hsk-vocabulary.html">300-word trainer</a>
+      <a href="hsk-dialogues.html">Dialogue lab</a>
+      <a href="online-tests.html" class="active">Online Tests</a>
+      <a href="blog.html">Blog</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <main class="container">
+    <section class="page-banner">
+      <div class="breadcrumbs">Home / Online Tests</div>
+      <h1>Online testing center</h1>
+      <p>Take quick quizzes, mock exams, and placement tests across IT, web design, AI, and HSK subjects.</p>
+    </section>
+
+    <div class="grid-4">
+      <div class="test-box">
+        <h3>IT Practice Test</h3>
+        <p>10 quick questions for computer basics and internet safety.</p>
+      </div>
+      <div class="test-box">
+        <h3>Web Design Quiz</h3>
+        <p>Test HTML, CSS, and responsive design knowledge.</p>
+      </div>
+      <div class="test-box">
+        <h3>AI Basics Quiz</h3>
+        <p>Review prompts, AI tools, and responsible use.</p>
+      </div>
+      <div class="test-box">
+        <h3>HSK Vocabulary Self-Test</h3>
+        <p>Practice 300 HSK 1–2 words with pinyin, instant feedback, and saved scores.</p>
+        <a href="hsk-vocabulary.html" class="primary-btn">Start HSK test</a>
+      </div>
+    </div>
+
+    <section class="card" style="margin-top:30px;">
+      <div id="quizRoot">
+        <div class="progress-bar"><span id="progressBar"></span></div>
+        <div id="questionNumber" class="subtle" style="margin-bottom:12px;">Question 1 of 10</div>
+        <div id="questionBox" class="quiz-card active"></div>
+        <div class="button-row">
+          <button id="previousQuestion" class="secondary-btn" type="button">Previous</button>
+          <button id="nextQuestion" class="primary-btn" type="button">Next</button>
+        </div>
+        <div id="quizSummary" class="quiz-summary">
+          <h3>Your results</h3>
+          <p id="scoreText"></p>
+          <ul id="summaryText" class="list-check"></ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
